@@ -22,3 +22,9 @@ Route::get('/hello', function () {
 Route::get('/home', function () {
     return view('blog/home');
 });
+
+// Call controller
+Route::get('/blog','BlogController@index');
+
+// with parameter
+Route::get('/blog/{id}','BlogController@show');

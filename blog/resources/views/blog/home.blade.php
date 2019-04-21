@@ -5,6 +5,6 @@
     <title>Home</title>
   </head>
   <body>
-    <h1>This is Home page</h1>
+    <h1>Welcome to Our blog</h1>
   </body>
 </html>
