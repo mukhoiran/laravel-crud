@@ -14,7 +14,8 @@
 
     <!-- foreach array in blade -->
     @foreach($users as $user)
-      <li>  {{ $user }} </li>
+      {{-- <li>  {{ $user }} </li> --}}
+      <li>  {{ $user->username.' '.$user->password }} </li>
     @endforeach
 
     {{-- echo html/script --}}

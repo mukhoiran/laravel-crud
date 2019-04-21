@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// load database
+use Illuminate\Support\Facades\DB;
+
 class BlogController extends Controller
 {
     public function index(){
@@ -13,7 +16,27 @@ class BlogController extends Controller
     public function show($id){
       $value = 'This is your id '. $id;
       $user = 'Muhammad Khoirul Anam';
-      $users = ['Anam','Khoirul','Muhammad'];
+      // $users = ['Anam','Khoirul','Muhammad'];
+
+      //insert data
+      // DB::table('users')->insert([
+      //   ['username'=>'testing','password'=>'123']
+      // ]);
+
+      //update record
+      // DB::table('users')->where('username','testing')->update(['username' => 'messi']);
+
+      // delete record
+      // DB::table('users')->where('username','khoirul')->delete();
+
+      //get users data from database (select)
+      $users = DB::table('users')->get();
+      // $users = DB::table('users')->where('username','anam')->get();
+      // $users = DB::table('users')->where('username','like','%a%')->get();
+
+      //debugging
+      // dd($users);
+
       $unescaped = '<script>alert("x!")</script>';
 
       return view('blog/single', ['blog' => $value, 'user' => $user, 'users' => $users, 'unescaped' => $unescaped]);
