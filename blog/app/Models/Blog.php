@@ -10,8 +10,8 @@ class Blog extends Model
     // public $timestamps = false;
 
     // whitelist
-    // protected $fillable = ['title','description'];
+    protected $fillable = ['title','description'];
 
     //blacklist
-    protected $guarded = ['created_at'];
+    // protected $guarded = ['created_at'];
 }

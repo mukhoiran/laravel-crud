@@ -67,4 +67,21 @@ class BlogController extends Controller
       $blogs = Blog::all();
       return view('blog/home', ['blogs' => $blogs]);
     }
+
+    public function update(){
+      //common update
+      // $blog = Blog::where('title','hot article')->first();
+      // $blog->title = 'really hot article';
+      // $blog->save();
+
+      //update mass assignment
+      Blog::find(6)->update([
+        'title' => 'hot article',
+        'description' => 'hot article edited with mass assignment'
+      ]);
+
+      // update mass assignment
+      $blogs = Blog::all();
+      return view('blog/home', ['blogs' => $blogs]);
+    }
 }
