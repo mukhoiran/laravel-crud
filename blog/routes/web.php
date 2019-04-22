@@ -28,6 +28,9 @@ Route::get('/blog','BlogController@index');
 
 // with parameter
 Route::get('/user/{id}','BlogController@show');
+
+Route::get('/blog/create','BlogController@create');
+Route::post('/blog','BlogController@store');
 Route::get('/blog/{id}','BlogController@view');
 
 Route::get('/blog/{id}/edit','BlogController@edit');

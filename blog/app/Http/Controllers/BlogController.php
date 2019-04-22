@@ -96,6 +96,20 @@ class BlogController extends Controller
       return view('blog/detail', ['blog' => $blog]);
     }
 
+    public function create(){
+      return view('blog/create');
+    }
+
+    public function store(Request $request){
+      //common insert
+      $blog = new Blog;
+      $blog->title = $request->title;
+      $blog->description = $request->description;
+      $blog->save();
+
+      return redirect('blog');
+    }
+
     public function edit($id){
       $blog = Blog::find($id);
 
@@ -111,6 +125,6 @@ class BlogController extends Controller
       $blog->description = $request->description;
       $blog->save();
 
-      dd('success');
+      return redirect('blog/'.$id);
     }
 }
