@@ -13,10 +13,12 @@
     <p>  {{ $user }} </p>
 
     <!-- foreach array in blade -->
-    @foreach($users as $user)
-      {{-- <li>  {{ $user }} </li> --}}
-      <li>  {{ $user->username.' '.$user->password }} </li>
-    @endforeach
+    <ul>
+      @foreach($users as $user)
+        {{-- <li>  {{ $user }} </li> --}}
+        <li>  {{ $user->username.' '.$user->password }} </li>
+      @endforeach
+    </ul>
 
     {{-- echo html/script --}}
     {!! $unescaped !!}

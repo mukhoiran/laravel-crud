@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 // load database
 use Illuminate\Support\Facades\DB;
+use App\Models\Blog;
 
 class BlogController extends Controller
 {
     public function index(){
-      return view('blog/home');
+      $blogs = Blog::all();
+      return view('blog/home', ['blogs' => $blogs]);
     }
 
     public function show($id){
@@ -40,5 +42,10 @@ class BlogController extends Controller
       $unescaped = '<script>alert("x!")</script>';
 
       return view('blog/single', ['blog' => $value, 'user' => $user, 'users' => $users, 'unescaped' => $unescaped]);
+    }
+
+    public function view($id){
+      $blog = Blog::find($id);
+      return view('blog/detail', ['blog' => $blog]);
     }
 }

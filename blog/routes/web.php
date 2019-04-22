@@ -27,4 +27,5 @@ Route::get('/home', function () {
 Route::get('/blog','BlogController@index');
 
 // with parameter
-Route::get('/blog/{id}','BlogController@show');
+Route::get('/user/{id}','BlogController@show');
+Route::get('/blog/{id}','BlogController@view');
