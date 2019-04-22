@@ -48,4 +48,23 @@ class BlogController extends Controller
       $blog = Blog::find($id);
       return view('blog/detail', ['blog' => $blog]);
     }
+
+    public function insert(){
+      //common insert
+      // $blog = new Blog;
+      // $blog->title = 'hot article';
+      // $blog->description = 'hot article hot article hot article hot article hot article';
+      // $blog->save();
+
+      // insert mass assigment
+      Blog::create([
+        'title' => 'best article',
+        'description' => 'best article best article best article best article best article',
+        'created_at' => '2019-04-20 19:18:43',
+        'updated_at' => '2019-04-20 19:18:43'
+      ]);
+
+      $blogs = Blog::all();
+      return view('blog/home', ['blogs' => $blogs]);
+    }
 }
