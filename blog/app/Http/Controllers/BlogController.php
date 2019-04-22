@@ -45,6 +45,16 @@ class BlogController extends Controller
       // Blog::destroy([1,2]);
       // Blog::destroy(7);
 
+      //soft delete
+      // $blog = Blog::find(2);
+      // $blog->delete();
+
+      //show all with deleted_at row
+      // $blogs = Blog::withTrashed()->get();
+
+      //return soft delete
+      // Blog::withTrashed()->restore();
+
       $blogs = Blog::all();
       return view('blog/home', ['blogs' => $blogs]);
     }
