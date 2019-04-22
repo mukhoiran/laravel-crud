@@ -127,4 +127,12 @@ class BlogController extends Controller
 
       return redirect('blog/'.$id);
     }
+
+    public function destroy($id){
+      //soft delete
+      $blog = Blog::find($id);
+      $blog->delete();
+
+      return redirect('blog');
+    }
 }

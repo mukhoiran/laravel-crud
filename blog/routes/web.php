@@ -35,3 +35,5 @@ Route::get('/blog/{id}','BlogController@view');
 
 Route::get('/blog/{id}/edit','BlogController@edit');
 Route::put('/blog/{id}','BlogController@update');
+
+Route::delete('/blog/{id}','BlogController@destroy');
