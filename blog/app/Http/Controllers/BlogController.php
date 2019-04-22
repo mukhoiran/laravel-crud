@@ -81,6 +81,8 @@ class BlogController extends Controller
     public function view($id){
       $blog = Blog::find($id);
 
+      if(!$blog)
+        abort(404);
       return view('blog/detail', ['blog' => $blog]);
     }
 }
