@@ -101,6 +101,12 @@ class BlogController extends Controller
     }
 
     public function store(Request $request){
+      //validation
+      $this->validate($request,[
+        'title' => 'required|min:5',
+        'description' => 'required|min:5|max:30'
+      ]);
+
       //common insert
       $blog = new Blog;
       $blog->title = $request->title;
