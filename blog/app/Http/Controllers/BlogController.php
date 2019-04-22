@@ -95,4 +95,22 @@ class BlogController extends Controller
         abort(404);
       return view('blog/detail', ['blog' => $blog]);
     }
+
+    public function edit($id){
+      $blog = Blog::find($id);
+
+      if(!$blog)
+        abort(404);
+      return view('blog/edit', ['blog' => $blog]);
+    }
+
+    public function update(Request $request, $id){
+      // common update
+      $blog = Blog::find($id);
+      $blog->title = $request->title;
+      $blog->description = $request->description;
+      $blog->save();
+
+      dd('success');
+    }
 }
