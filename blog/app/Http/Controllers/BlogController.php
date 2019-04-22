@@ -11,6 +11,40 @@ use App\Models\Blog;
 class BlogController extends Controller
 {
     public function index(){
+
+      //common insert
+      // $blog = new Blog;
+      // $blog->title = 'hot article';
+      // $blog->description = 'hot article hot article hot article hot article hot article';
+      // $blog->save();
+
+      // insert mass assigment
+      // Blog::create([
+      //   'title' => 'best article',
+      //   'description' => 'best article best article best article best article best article',
+      //   'created_at' => '2019-04-20 19:18:43',
+      //   'updated_at' => '2019-04-20 19:18:43'
+      // ]);
+
+      //common update
+      // $blog = Blog::where('title','hot article')->first();
+      // $blog->title = 'really hot article';
+      // $blog->save();
+
+      //update mass assignment
+      // Blog::find(6)->update([
+      //   'title' => 'hot article',
+      //   'description' => 'hot article edited with mass assignment'
+      // ]);
+
+      //common delete
+      // $blog = Blog::find(5);
+      // $blog->delete();
+
+      //delete destroy
+      // Blog::destroy([1,2]);
+      // Blog::destroy(7);
+
       $blogs = Blog::all();
       return view('blog/home', ['blogs' => $blogs]);
     }
@@ -46,42 +80,7 @@ class BlogController extends Controller
 
     public function view($id){
       $blog = Blog::find($id);
+
       return view('blog/detail', ['blog' => $blog]);
-    }
-
-    public function insert(){
-      //common insert
-      // $blog = new Blog;
-      // $blog->title = 'hot article';
-      // $blog->description = 'hot article hot article hot article hot article hot article';
-      // $blog->save();
-
-      // insert mass assigment
-      Blog::create([
-        'title' => 'best article',
-        'description' => 'best article best article best article best article best article',
-        'created_at' => '2019-04-20 19:18:43',
-        'updated_at' => '2019-04-20 19:18:43'
-      ]);
-
-      $blogs = Blog::all();
-      return view('blog/home', ['blogs' => $blogs]);
-    }
-
-    public function update(){
-      //common update
-      // $blog = Blog::where('title','hot article')->first();
-      // $blog->title = 'really hot article';
-      // $blog->save();
-
-      //update mass assignment
-      Blog::find(6)->update([
-        'title' => 'hot article',
-        'description' => 'hot article edited with mass assignment'
-      ]);
-
-      // update mass assignment
-      $blogs = Blog::all();
-      return view('blog/home', ['blogs' => $blogs]);
     }
 }
