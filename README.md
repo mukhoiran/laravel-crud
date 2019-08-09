@@ -1,2 +1,2 @@
 # laravel-crud
-Documentation about CRUD on Laravel
+CRUD on Laravel
