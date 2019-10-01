@@ -9,9 +9,10 @@ class Blog extends Model
 {
     // nonactive auto update on created_at and updated_at
     // public $timestamps = false;
+    public $table = "forums";
 
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
+    // use SoftDeletes;
+    // protected $dates = ['deleted_at'];
 
     // whitelist
     protected $fillable = ['title','description'];
